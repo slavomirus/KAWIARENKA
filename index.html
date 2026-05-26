@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nowoczesna Kawiarnia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Płynne przejścia dla nakładki */
+        .admin-overlay {
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <nav class="bg-white shadow-md fixed w-full z-40 top-0">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-amber-700">Moja Kawiarnia</h1>
+            <div class="flex gap-4 items-center">
+                <a href="#o-nas" class="hover:text-amber-700 transition">O nas</a>
+                <a href="#opinie" class="hover:text-amber-700 transition">Opinie</a>
+                <a href="#menu" class="hover:text-amber-700 transition">Menu</a>
+                <button id="toggleAdminBtn" class="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-700 transition" onclick="toggleAdminMode()">
+                    Włącz Tryb Admina
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="mt-20 max-w-6xl mx-auto px-4 py-16 text-center">
+        <h2 class="text-5xl font-extrabold text-gray-900 mb-4">Poczuj smak prawdziwej kawy</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Idealne miejsce na poranne espresso, popołudniowy relaks i spotkania ze znajomymi. Sprawdź naszą ofertę!</p>
+    </header>
+
+    <section id="opinie" class="bg-amber-50 py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h3 class="text-3xl font-bold text-center mb-10">Co mówią o nas klienci (Google Reviews)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="text-yellow-400 text-xl">★★★★★</div>
+                        <span class="font-semibold">Anna K.</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">"Najlepsza kawa w okolicy! Świetny klimat i bardzo miła obsługa. Na pewno wrócę."</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="text-yellow-400 text-xl">★★★★★</div>
+                        <span class="font-semibold">Tomasz W.</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">"Cudowne desery i aromatyczne espresso. Bardzo czysto i przytulnie. Polecam z całego serca!"</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="text-yellow-400 text-xl">★★★★☆</div>
+                        <span class="font-semibold">Magdalena P.</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">"Duży wybór kaw i świetna lokalizacja. Ceny mogłyby być nieco niższe, ale jakość to wynagradza."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-16 max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-end mb-10">
+            <h3 class="text-3xl font-bold">Nasze Menu</h3>
+            <button id="addMenuItemBtn" class="hidden bg-amber-600 text-white px-5 py-2 rounded-lg shadow hover:bg-amber-700 transition" onclick="openModal()">
+                + Dodaj Pozycję
+            </button>
+        </div>
+        
+        <div id="menuContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
+    </section>
+
+    <div id="itemModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md relative">
+            <h3 id="modalTitle" class="text-2xl font-bold mb-6">Dodaj nową pozycję</h3>
+            <input type="hidden" id="itemId">
+            
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Adres URL zdjęcia</label>
+                <input type="text" id="itemImage" class="w-full border-gray-300 border p-2 rounded focus:ring-amber-500 focus:border-amber-500" placeholder="https://...">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Nazwa</label>
+                <input type="text" id="itemName" class="w-full border-gray-300 border p-2 rounded focus:ring-amber-500 focus:border-amber-500" placeholder="np. Espresso Macchiato">
+            </div>
+
+            <div class="flex gap-4 mb-4">
+                <div class="w-1/2">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Cena (PLN)</label>
+                    <input type="number" id="itemPrice" class="w-full border-gray-300 border p-2 rounded focus:ring-amber-500 focus:border-amber-500" placeholder="15">
+                </div>
+                <div class="w-1/2">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Gramatura/Pojemność</label>
+                    <input type="text" id="itemWeight" class="w-full border-gray-300 border p-2 rounded focus:ring-amber-500 focus:border-amber-500" placeholder="np. 200ml">
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Opis</label>
+                <textarea id="itemDesc" class="w-full border-gray-300 border p-2 rounded focus:ring-amber-500 focus:border-amber-500" rows="3" placeholder="Krótki opis..."></textarea>
+            </div>
+
+            <div class="flex justify-end gap-3">
+                <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300" onclick="closeModal()">Anuluj</button>
+                <button class="bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700" onclick="saveItem()">Zapisz</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+        <p>&copy; 2026 Moja Kawiarnia. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script>
+        // Stan aplikacji
+        let isAdmin = false;
+        let menuItems = [
+            { id: 1, name: "Espresso", price: 10, weight: "30ml", desc: "Mocna i aromatyczna kawa parzona z najlepszych ziaren.", image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=500&q=80" },
+            { id: 2, name: "Cappuccino", price: 15, weight: "200ml", desc: "Klasyczne włoskie cappuccino z gęstą mleczną pianką.", image: "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=500&q=80" },
+            { id: 3, name: "Sernik Baskijski", price: 22, weight: "150g", desc: "Kremowy, mocno przypieczony z zewnątrz i delikatny w środku.", image: "https://images.unsplash.com/photo-1602351447937-745cb720612f?auto=format&fit=crop&w=500&q=80" }
+        ];
+
+        // Referencje do DOM
+        const menuContainer = document.getElementById('menuContainer');
+        const toggleAdminBtn = document.getElementById('toggleAdminBtn');
+        const addMenuItemBtn = document.getElementById('addMenuItemBtn');
+        const itemModal = document.getElementById('itemModal');
+
+        // Renderowanie Menu
+        function renderMenu() {
+            menuContainer.innerHTML = '';
+            menuItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "relative bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden cursor-pointer hover:shadow-lg transition duration-300";
+                
+                // Obsługa kliknięcia (nakładka administracyjna)
+                card.onclick = () => toggleItemOverlay(item.id);
+
+                card.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="w-full h-56 object-cover">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-gray-900">${item.name}</h4>
+                            <span class="bg-amber-100 text-amber-800 text-sm font-semibold px-2 py-1 rounded">${item.price} PLN</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-3">Gramatura: ${item.weight}</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">${item.desc}</p>
+                    </div>
+
+                    <div id="overlay-${item.id}" class="admin-overlay absolute inset-0 bg-black bg-opacity-80 flex-col items-center justify-center gap-4 hidden opacity-0 z-10">
+                        <p class="text-white font-semibold mb-2">Opcje Administratora</p>
+                        <div class="flex gap-3">
+                            <button class="bg-blue-600 text-white px-5 py-2 rounded shadow hover:bg-blue-700 transition" onclick="event.stopPropagation(); editItem(${item.id})">Edytuj</button>
+                            <button class="bg-red-600 text-white px-5 py-2 rounded shadow hover:bg-red-700 transition" onclick="event.stopPropagation(); deleteItem(${item.id})">Usuń</button>
+                        </div>
+                        <button class="absolute top-4 right-4 text-gray-400 hover:text-white" onclick="event.stopPropagation(); toggleItemOverlay(${item.id})">✕ Zamknij</button>
+                    </div>
+                `;
+                menuContainer.appendChild(card);
+            });
+        }
+
+        // Przełączanie trybu Administratora
+        function toggleAdminMode() {
+            isAdmin = !isAdmin;
+            toggleAdminBtn.innerText = isAdmin ? "Wyłącz Tryb Admina" : "Włącz Tryb Admina";
+            toggleAdminBtn.classList.toggle('bg-amber-600', isAdmin);
+            toggleAdminBtn.classList.toggle('bg-gray-800', !isAdmin);
+            
+            if (isAdmin) {
+                addMenuItemBtn.classList.remove('hidden');
+            } else {
+                addMenuItemBtn.classList.add('hidden');
+                // Schowaj wszystkie otwarte nakładki
+                document.querySelectorAll('.admin-overlay').forEach(overlay => {
+                    overlay.classList.add('hidden');
+                    overlay.classList.remove('flex', 'opacity-100');
+                });
+            }
+        }
+
+        // Pokazywanie nakładki na kafelku
+        function toggleItemOverlay(id) {
+            if (!isAdmin) return; // Nakładka działa tylko w trybie admina
+
+            const overlay = document.getElementById(`overlay-${id}`);
+            const isHidden = overlay.classList.contains('hidden');
+
+            // Ukryj inne otwarte nakładki (opcjonalne, ale UXowo lepsze)
+            document.querySelectorAll('.admin-overlay').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('flex', 'opacity-100');
+            });
+
+            if (isHidden) {
+                overlay.classList.remove('hidden');
+                overlay.classList.add('flex');
+                // Krótkie opóźnienie dla płynnego pojawienia się (transition opacity)
+                setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            }
+        }
+
+        // Obsługa formularza (Modal)
+        function openModal(id = null) {
+            document.getElementById('itemModal').classList.remove('hidden');
+            if (id) {
+                document.getElementById('modalTitle').innerText = "Edytuj pozycję";
+                const item = menuItems.find(i => i.id === id);
+                document.getElementById('itemId').value = item.id;
+                document.getElementById('itemImage').value = item.image;
+                document.getElementById('itemName').value = item.name;
+                document.getElementById('itemPrice').value = item.price;
+                document.getElementById('itemWeight').value = item.weight;
+                document.getElementById('itemDesc').value = item.desc;
+            } else {
+                document.getElementById('modalTitle').innerText = "Dodaj nową pozycję";
+                document.getElementById('itemId').value = "";
+                document.getElementById('itemImage').value = "";
+                document.getElementById('itemName').value = "";
+                document.getElementById('itemPrice').value = "";
+                document.getElementById('itemWeight').value = "";
+                document.getElementById('itemDesc').value = "";
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('itemModal').classList.add('hidden');
+        }
+
+        function saveItem() {
+            const id = document.getElementById('itemId').value;
+            const newItem = {
+                id: id ? parseInt(id) : Date.now(),
+                image: document.getElementById('itemImage').value || 'https://via.placeholder.com/500x300?text=Brak+zdjęcia',
+                name: document.getElementById('itemName').value || 'Nowa Pozycja',
+                price: parseFloat(document.getElementById('itemPrice').value) || 0,
+                weight: document.getElementById('itemWeight').value || '-',
+                desc: document.getElementById('itemDesc').value || 'Brak opisu'
+            };
+
+            if (id) {
+                const index = menuItems.findIndex(i => i.id === parseInt(id));
+                menuItems[index] = newItem;
+            } else {
+                menuItems.push(newItem);
+            }
+
+            closeModal();
+            renderMenu();
+        }
+
+        function deleteItem(id) {
+            if (confirm("Czy na pewno chcesz usunąć tę pozycję z menu?")) {
+                menuItems = menuItems.filter(item => item.id !== id);
+                renderMenu();
+            }
+        }
+
+        // Inicjalizacja
+        renderMenu();
+    </script>
+</body>
+</html>
