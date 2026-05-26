@@ -1,174 +1,286 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nowoczesna Kawiarnia</title>
+    <title>Kawiarenka - Kawa & Ciasto Gdynia Chylonia</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Płynne przejścia dla nakładki */
-        .admin-overlay {
-            transition: opacity 0.3s ease;
+        .admin-overlay { transition: opacity 0.3s ease; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+<body class="bg-[#faf8f5] text-gray-800 font-sans antialiased">
 
-    <nav class="bg-white shadow-md fixed w-full z-40 top-0">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-amber-700">Moja Kawiarnia</h1>
-            <div class="flex gap-4 items-center">
-                <a href="#o-nas" class="hover:text-amber-700 transition">O nas</a>
-                <a href="#opinie" class="hover:text-amber-700 transition">Opinie</a>
-                <a href="#menu" class="hover:text-amber-700 transition">Menu</a>
-                <button id="toggleAdminBtn" class="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-700 transition" onclick="toggleAdminMode()">
-                    Włącz Tryb Admina
+    <!-- Nawigacja -->
+    <nav class="bg-white/95 backdrop-blur-sm shadow-sm fixed w-full z-40 top-0 border-b border-amber-100">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-4">
+            <h1 class="text-3xl font-extrabold text-amber-800 tracking-tight">Kawiarenka<span class="text-amber-500">.</span></h1>
+            <div class="flex gap-4 sm:gap-6 items-center text-sm font-medium">
+                <a href="#sezonowe" class="hover:text-amber-600 transition">Smaki Sezonowe</a>
+                <a href="#menu" class="hover:text-amber-600 transition">Menu</a>
+                <a href="#opinie" class="hover:text-amber-600 transition">Opinie</a>
+                <a href="#kontakt" class="hover:text-amber-600 transition">Kontakt</a>
+                <!-- Przycisk Admina -->
+                <button id="toggleAdminBtn" class="bg-gray-800 text-white px-4 py-2 rounded-full text-xs hover:bg-gray-700 transition" onclick="toggleAdminMode()">
+                    Tryb Admina: OFF
                 </button>
             </div>
         </div>
     </nav>
 
-    <header class="mt-20 max-w-6xl mx-auto px-4 py-16 text-center">
-        <h2 class="text-5xl font-extrabold text-gray-900 mb-4">Poczuj smak prawdziwej kawy</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Idealne miejsce na poranne espresso, popołudniowy relaks i spotkania ze znajomymi. Sprawdź naszą ofertę!</p>
+    <!-- Sekcja Hero -->
+    <header class="hero-bg mt-16 py-32 text-center text-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg">Najlepsza kawa w Gdyni Chyloni</h2>
+            <p class="text-xl md:text-2xl font-light mb-10 text-gray-200">Aromatyczna kawa, przepyszne ciasta od serca i niezapomniana atmosfera. Poczuj ciepło naszego miejsca.</p>
+            <a href="#menu" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition shadow-lg text-lg">
+                Sprawdź nasze menu
+            </a>
+        </div>
     </header>
 
-    <section id="opinie" class="bg-amber-50 py-16">
-        <div class="max-w-6xl mx-auto px-4">
-            <h3 class="text-3xl font-bold text-center mb-10">Co mówią o nas klienci (Google Reviews)</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="text-yellow-400 text-xl">★★★★★</div>
-                        <span class="font-semibold">Anna K.</span>
-                    </div>
-                    <p class="text-gray-600 text-sm">"Najlepsza kawa w okolicy! Świetny klimat i bardzo miła obsługa. Na pewno wrócę."</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="text-yellow-400 text-xl">★★★★★</div>
-                        <span class="font-semibold">Tomasz W.</span>
-                    </div>
-                    <p class="text-gray-600 text-sm">"Cudowne desery i aromatyczne espresso. Bardzo czysto i przytulnie. Polecam z całego serca!"</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="text-yellow-400 text-xl">★★★★☆</div>
-                        <span class="font-semibold">Magdalena P.</span>
-                    </div>
-                    <p class="text-gray-600 text-sm">"Duży wybór kaw i świetna lokalizacja. Ceny mogłyby być nieco niższe, ale jakość to wynagradza."</p>
+    <!-- Sekcja: Smaki Sezonowe -->
+    <section id="sezonowe" class="py-20 bg-amber-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold text-gray-900 mb-4">Smaki Sezonowe 🍂</h3>
+                <p class="text-gray-600 max-w-2xl mx-auto">Spróbuj naszych limitowanych nowości, które rozgrzeją Cię w chłodniejsze dni i osłodzą każde popołudnie.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?auto=format&fit=crop&w=800&q=80" alt="Ciasto" class="rounded-2xl shadow-xl w-full h-80 object-cover">
+                <div>
+                    <h4 class="text-2xl font-bold text-amber-800 mb-2">Ciasto Dakłas & Sernik Cynamonowy</h4>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Nasze absolutne hity wg klientów! Obłędne ciasto bezowe z kremem orzechowym, daktylami i kawałkami orzechów włoskich, oraz aksamitny sernik z nutą cynamonu, idealny do gorącej czekolady lub aromatycznego cappuccino.
+                    </p>
+                    <ul class="space-y-3 font-medium text-gray-800 mb-8">
+                        <li class="flex items-center gap-2"><span>☕</span> Cynamonowe Cappuccino</li>
+                        <li class="flex items-center gap-2"><span>🤎</span> Gorąca czekolada z piankami</li>
+                        <li class="flex items-center gap-2"><span>🍰</span> Pistacjowy sernik premium</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="menu" class="py-16 max-w-6xl mx-auto px-4">
-        <div class="flex justify-between items-end mb-10">
-            <h3 class="text-3xl font-bold">Nasze Menu</h3>
-            <button id="addMenuItemBtn" class="hidden bg-amber-600 text-white px-5 py-2 rounded-lg shadow hover:bg-amber-700 transition" onclick="openModal()">
-                + Dodaj Pozycję
+    <!-- Sekcja Menu (Zarządzana przez Admina) -->
+    <section id="menu" class="py-20 max-w-7xl mx-auto px-4">
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-12 gap-4">
+            <h3 class="text-4xl font-bold text-gray-900">Stałe Menu</h3>
+            <button id="addMenuItemBtn" class="hidden bg-amber-600 text-white px-6 py-3 rounded-full font-bold shadow-md hover:bg-amber-700 transition" onclick="openModal()">
+                + Dodaj nową pozycję
             </button>
         </div>
-        
         <div id="menuContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
+            <!-- Tutaj JS wstrzykuje kafelki -->
+        </div>
     </section>
 
-    <div id="itemModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
-        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md relative">
-            <h3 id="modalTitle" class="text-2xl font-bold mb-6">Dodaj nową pozycję</h3>
+    <!-- Sekcja Opinii (Prawdziwe z Google Maps) -->
+    <section id="opinie" class="bg-white py-20 border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h3 class="text-4xl font-bold text-center mb-12 text-gray-900">Co mówią o nas goście</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Opinia 1 -->
+                <div class="bg-[#faf8f5] p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-1 mb-4 text-amber-500 text-xl">
+                        ★★★★★
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Najlepsza kawa, jaką piłam w mieście, pyszne ciasta, piękny wystrój, czysto, a panie są urocze i wspaniałe. Na pewno będziemy wracać."</p>
+                    <span class="font-bold text-gray-900">- Barbara B.</span>
+                </div>
+                <!-- Opinia 2 -->
+                <div class="bg-[#faf8f5] p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-1 mb-4 text-amber-500 text-xl">
+                        ★★★★★
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Maleńka kawiarnia z dużym wyborem ciast i lodów rzemieślniczych. Jadłam moje ulubione ciasto Dakłas – bezowe z kremem orzechowym i daktylami. Pycha!!"</p>
+                    <span class="font-bold text-gray-900">- Liliana Górska</span>
+                </div>
+                <!-- Opinia 3 -->
+                <div class="bg-[#faf8f5] p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-1 mb-4 text-amber-500 text-xl">
+                        ★★★★★
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Bardzo przyjemna kawiarnia w Gdyni Chyloni. Klimatyczne miejsce, idealne na kawę i coś słodkiego. Czego chcieć więcej od dobrej kawiarni? ;)"</p>
+                    <span class="font-bold text-gray-900">- Marcin</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja Kontakt & Mapa -->
+    <section id="kontakt" class="py-20 max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+            <!-- Informacje -->
+            <div class="flex flex-col justify-center">
+                <h3 class="text-3xl font-bold text-gray-900 mb-6">Znajdź nas</h3>
+                
+                <div class="mb-8">
+                    <h4 class="text-xl font-bold text-amber-800 mb-2">Kawiarenka - Kawa & Ciasto</h4>
+                    <p class="text-gray-600 flex items-center gap-2">
+                        📍 Gdynia Chylonia<br>
+                    </p>
+                    <p class="text-gray-600 mt-3 font-semibold text-lg flex items-center gap-2">
+                        📞 Telefon: <a href="tel:+48733338799" class="text-amber-600 hover:underline">733 338 799</a>
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-4">Godziny otwarcia</h4>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex justify-between border-b pb-1"><span>Poniedziałek</span> <span>09:00 - 18:00</span></li>
+                        <li class="flex justify-between border-b pb-1 font-bold text-amber-800"><span>Wtorek</span> <span>09:00 - 20:00</span></li>
+                        <li class="flex justify-between border-b pb-1"><span>Środa</span> <span>09:00 - 18:00</span></li>
+                        <li class="flex justify-between border-b pb-1"><span>Czwartek</span> <span>09:00 - 18:00</span></li>
+                        <li class="flex justify-between border-b pb-1"><span>Piątek</span> <span>09:00 - 18:00</span></li>
+                        <li class="flex justify-between border-b pb-1"><span>Sobota</span> <span>09:00 - 18:00</span></li>
+                        <li class="flex justify-between border-b pb-1"><span>Niedziela</span> <span>11:00 - 18:00</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Mapa Osadzona -->
+            <div class="w-full h-96 lg:h-full min-h-[300px] rounded-2xl overflow-hidden shadow-inner">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d645.2114245012467!2d18.46153992340791!3d54.543479102597374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fda5d215c79a2f%3A0x456211b64ea92f28!2sKAWIARENKA%20-%20Kawa%20%26%20Ciasto%20Gdynia%20Chylonia!5e0!3m2!1sen!2spl!4v1779819805604!5m2!1sen!2spl" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stopka -->
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center mt-10">
+        <p>&copy; 2026 Kawiarenka. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+    <!-- Modal Formularza (Dodaj / Edytuj) -->
+    <div id="itemModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-lg relative">
+            <h3 id="modalTitle" class="text-2xl font-bold mb-6 text-gray-900">Dodaj nową pozycję</h3>
             <input type="hidden" id="itemId">
             
-            <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Adres URL zdjęcia</label>
-                <input type="text" id="itemImage" class="w-full border-gray-300 border p-2 rounded focus:ring-amber-500 focus:border-amber-500" placeholder="https://...">
+            <!-- Pole na plik zdjęcia z urządzenia -->
+            <div class="mb-5">
+                <label class="block text-sm font-bold text-gray-700 mb-2">Zdjęcie z urządzenia</label>
+                <input type="file" id="itemImageFile" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100 cursor-pointer">
+                <p class="text-xs text-gray-400 mt-1">Zostaw puste podczas edycji, jeśli nie chcesz zmieniać zdjęcia.</p>
             </div>
             
             <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Nazwa</label>
-                <input type="text" id="itemName" class="w-full border-gray-300 border p-2 rounded focus:ring-amber-500 focus:border-amber-500" placeholder="np. Espresso Macchiato">
+                <label class="block text-sm font-bold text-gray-700 mb-1">Nazwa</label>
+                <input type="text" id="itemName" class="w-full border-gray-300 border p-3 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none transition" placeholder="np. Kawa Americano">
             </div>
 
             <div class="flex gap-4 mb-4">
                 <div class="w-1/2">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Cena (PLN)</label>
-                    <input type="number" id="itemPrice" class="w-full border-gray-300 border p-2 rounded focus:ring-amber-500 focus:border-amber-500" placeholder="15">
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Cena (PLN)</label>
+                    <input type="number" id="itemPrice" class="w-full border-gray-300 border p-3 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none transition" placeholder="15">
                 </div>
                 <div class="w-1/2">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Gramatura/Pojemność</label>
-                    <input type="text" id="itemWeight" class="w-full border-gray-300 border p-2 rounded focus:ring-amber-500 focus:border-amber-500" placeholder="np. 200ml">
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Pojemność / Waga</label>
+                    <input type="text" id="itemWeight" class="w-full border-gray-300 border p-3 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none transition" placeholder="np. 200ml">
                 </div>
             </div>
 
             <div class="mb-6">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Opis</label>
-                <textarea id="itemDesc" class="w-full border-gray-300 border p-2 rounded focus:ring-amber-500 focus:border-amber-500" rows="3" placeholder="Krótki opis..."></textarea>
+                <label class="block text-sm font-bold text-gray-700 mb-1">Opis</label>
+                <textarea id="itemDesc" class="w-full border-gray-300 border p-3 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none transition" rows="3" placeholder="Krótki, apetyczny opis..."></textarea>
             </div>
 
             <div class="flex justify-end gap-3">
-                <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300" onclick="closeModal()">Anuluj</button>
-                <button class="bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700" onclick="saveItem()">Zapisz</button>
+                <button class="bg-gray-100 text-gray-800 px-5 py-2.5 rounded-xl font-bold hover:bg-gray-200 transition" onclick="closeModal()">Anuluj</button>
+                <button class="bg-amber-600 text-white px-5 py-2.5 rounded-xl font-bold shadow-md hover:bg-amber-700 transition" onclick="saveItem()">Zapisz Pozycję</button>
             </div>
         </div>
     </div>
 
-    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
-        <p>&copy; 2026 Moja Kawiarnia. Wszystkie prawa zastrzeżone.</p>
-    </footer>
-
     <script>
-        // Stan aplikacji
         let isAdmin = false;
+        let currentImageBase64 = ''; // Przechowuje zdjęcie wczytane z urządzenia
+        
+        // Przykładowe dane na start
         let menuItems = [
-            { id: 1, name: "Espresso", price: 10, weight: "30ml", desc: "Mocna i aromatyczna kawa parzona z najlepszych ziaren.", image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=500&q=80" },
-            { id: 2, name: "Cappuccino", price: 15, weight: "200ml", desc: "Klasyczne włoskie cappuccino z gęstą mleczną pianką.", image: "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=500&q=80" },
-            { id: 3, name: "Sernik Baskijski", price: 22, weight: "150g", desc: "Kremowy, mocno przypieczony z zewnątrz i delikatny w środku.", image: "https://images.unsplash.com/photo-1602351447937-745cb720612f?auto=format&fit=crop&w=500&q=80" }
+            { id: 1, name: "Klasyczne Espresso", price: 10, weight: "30ml", desc: "Mocna, esencjonalna i aromatyczna kawa parzona z najlepszych ziaren bez goryczy.", image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=500&q=80" },
+            { id: 2, name: "Sernik Pistacjowy", price: 24, weight: "Porcja", desc: "Prawdziwy hit! Delikatny, kremowy sernik z pastą z wyselekcjonowanych pistacji.", image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=500&q=80" },
+            { id: 3, name: "Cappuccino z kremą", price: 16, weight: "250ml", desc: "Zbalansowany smak kawy połączony z perfekcyjnie spienionym mlekiem.", image: "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=500&q=80" }
         ];
 
-        // Referencje do DOM
+        // Referencje
         const menuContainer = document.getElementById('menuContainer');
         const toggleAdminBtn = document.getElementById('toggleAdminBtn');
         const addMenuItemBtn = document.getElementById('addMenuItemBtn');
-        const itemModal = document.getElementById('itemModal');
+        const itemImageFileInput = document.getElementById('itemImageFile');
 
-        // Renderowanie Menu
+        // Obsługa wczytywania zdjęcia z urządzenia
+        itemImageFileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    currentImageBase64 = event.target.result; // Zapisz w formacie Data URL
+                };
+                reader.readAsDataURL(file);
+            } else {
+                currentImageBase64 = '';
+            }
+        });
+
+        // Generowanie widoku Menu
         function renderMenu() {
             menuContainer.innerHTML = '';
             menuItems.forEach(item => {
                 const card = document.createElement('div');
-                card.className = "relative bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden cursor-pointer hover:shadow-lg transition duration-300";
+                card.className = "relative bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden cursor-pointer hover:shadow-xl transition duration-300 flex flex-col group";
                 
-                // Obsługa kliknięcia (nakładka administracyjna)
+                // Kliknięcie uruchamia nakładkę admina
                 card.onclick = () => toggleItemOverlay(item.id);
 
                 card.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="w-full h-56 object-cover">
-                    <div class="p-5">
-                        <div class="flex justify-between items-start mb-2">
-                            <h4 class="text-xl font-bold text-gray-900">${item.name}</h4>
-                            <span class="bg-amber-100 text-amber-800 text-sm font-semibold px-2 py-1 rounded">${item.price} PLN</span>
+                    <div class="h-56 overflow-hidden">
+                        <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-3 gap-2">
+                                <h4 class="text-xl font-bold text-gray-900">${item.name}</h4>
+                                <span class="bg-amber-100 text-amber-800 text-sm font-bold px-3 py-1 rounded-full whitespace-nowrap">${item.price} PLN</span>
+                            </div>
+                            <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-3">Pojemność/Waga: ${item.weight}</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">${item.desc}</p>
                         </div>
-                        <p class="text-xs text-gray-400 mb-3">Gramatura: ${item.weight}</p>
-                        <p class="text-gray-600 text-sm leading-relaxed">${item.desc}</p>
                     </div>
 
-                    <div id="overlay-${item.id}" class="admin-overlay absolute inset-0 bg-black bg-opacity-80 flex-col items-center justify-center gap-4 hidden opacity-0 z-10">
-                        <p class="text-white font-semibold mb-2">Opcje Administratora</p>
+                    <!-- Nakładka edycyjna (80% przeźroczystości) -->
+                    <div id="overlay-${item.id}" class="admin-overlay absolute inset-0 bg-black/80 flex-col items-center justify-center gap-4 hidden opacity-0 z-10 backdrop-blur-sm">
+                        <p class="text-white font-bold tracking-wide mb-2 uppercase text-sm">Opcje Panelu</p>
                         <div class="flex gap-3">
-                            <button class="bg-blue-600 text-white px-5 py-2 rounded shadow hover:bg-blue-700 transition" onclick="event.stopPropagation(); editItem(${item.id})">Edytuj</button>
-                            <button class="bg-red-600 text-white px-5 py-2 rounded shadow hover:bg-red-700 transition" onclick="event.stopPropagation(); deleteItem(${item.id})">Usuń</button>
+                            <!-- Funkcje edytuj i usun musza być zadeklarowane globalnie -->
+                            <button class="bg-blue-500 text-white px-6 py-2 rounded-full font-bold shadow hover:bg-blue-600 transition" onclick="event.stopPropagation(); window.editItem(${item.id})">Edytuj</button>
+                            <button class="bg-red-500 text-white px-6 py-2 rounded-full font-bold shadow hover:bg-red-600 transition" onclick="event.stopPropagation(); window.deleteItem(${item.id})">Usuń</button>
                         </div>
-                        <button class="absolute top-4 right-4 text-gray-400 hover:text-white" onclick="event.stopPropagation(); toggleItemOverlay(${item.id})">✕ Zamknij</button>
+                        <button class="absolute top-4 right-4 text-gray-300 hover:text-white font-bold text-sm bg-black/50 px-3 py-1 rounded-full" onclick="event.stopPropagation(); toggleItemOverlay(${item.id})">✕ Zamknij</button>
                     </div>
                 `;
                 menuContainer.appendChild(card);
             });
         }
 
-        // Przełączanie trybu Administratora
+        // Tryb Administratora
         function toggleAdminMode() {
             isAdmin = !isAdmin;
-            toggleAdminBtn.innerText = isAdmin ? "Wyłącz Tryb Admina" : "Włącz Tryb Admina";
+            toggleAdminBtn.innerText = isAdmin ? "Tryb Admina: ON" : "Tryb Admina: OFF";
             toggleAdminBtn.classList.toggle('bg-amber-600', isAdmin);
             toggleAdminBtn.classList.toggle('bg-gray-800', !isAdmin);
             
@@ -176,7 +288,6 @@
                 addMenuItemBtn.classList.remove('hidden');
             } else {
                 addMenuItemBtn.classList.add('hidden');
-                // Schowaj wszystkie otwarte nakładki
                 document.querySelectorAll('.admin-overlay').forEach(overlay => {
                     overlay.classList.add('hidden');
                     overlay.classList.remove('flex', 'opacity-100');
@@ -184,14 +295,12 @@
             }
         }
 
-        // Pokazywanie nakładki na kafelku
+        // Nakładka
         function toggleItemOverlay(id) {
-            if (!isAdmin) return; // Nakładka działa tylko w trybie admina
-
+            if (!isAdmin) return;
             const overlay = document.getElementById(`overlay-${id}`);
             const isHidden = overlay.classList.contains('hidden');
 
-            // Ukryj inne otwarte nakładki (opcjonalne, ale UXowo lepsze)
             document.querySelectorAll('.admin-overlay').forEach(el => {
                 el.classList.add('hidden');
                 el.classList.remove('flex', 'opacity-100');
@@ -200,68 +309,94 @@
             if (isHidden) {
                 overlay.classList.remove('hidden');
                 overlay.classList.add('flex');
-                // Krótkie opóźnienie dla płynnego pojawienia się (transition opacity)
                 setTimeout(() => overlay.classList.add('opacity-100'), 10);
             }
         }
 
-        // Obsługa formularza (Modal)
-        function openModal(id = null) {
+        // Otwieranie Modala
+        function openModal() {
             document.getElementById('itemModal').classList.remove('hidden');
-            if (id) {
-                document.getElementById('modalTitle').innerText = "Edytuj pozycję";
-                const item = menuItems.find(i => i.id === id);
-                document.getElementById('itemId').value = item.id;
-                document.getElementById('itemImage').value = item.image;
-                document.getElementById('itemName').value = item.name;
-                document.getElementById('itemPrice').value = item.price;
-                document.getElementById('itemWeight').value = item.weight;
-                document.getElementById('itemDesc').value = item.desc;
-            } else {
-                document.getElementById('modalTitle').innerText = "Dodaj nową pozycję";
-                document.getElementById('itemId').value = "";
-                document.getElementById('itemImage').value = "";
-                document.getElementById('itemName').value = "";
-                document.getElementById('itemPrice').value = "";
-                document.getElementById('itemWeight').value = "";
-                document.getElementById('itemDesc').value = "";
-            }
+            currentImageBase64 = ''; // Resetuj wczytane zdjęcie przy każdym otwarciu
+            itemImageFileInput.value = ''; // Wyczyść input pliku
+            
+            document.getElementById('modalTitle').innerText = "Dodaj nową pozycję";
+            document.getElementById('itemId').value = "";
+            document.getElementById('itemName').value = "";
+            document.getElementById('itemPrice').value = "";
+            document.getElementById('itemWeight').value = "";
+            document.getElementById('itemDesc').value = "";
         }
 
         function closeModal() {
             document.getElementById('itemModal').classList.add('hidden');
         }
 
-        function saveItem() {
-            const id = document.getElementById('itemId').value;
-            const newItem = {
-                id: id ? parseInt(id) : Date.now(),
-                image: document.getElementById('itemImage').value || 'https://via.placeholder.com/500x300?text=Brak+zdjęcia',
-                name: document.getElementById('itemName').value || 'Nowa Pozycja',
-                price: parseFloat(document.getElementById('itemPrice').value) || 0,
-                weight: document.getElementById('itemWeight').value || '-',
-                desc: document.getElementById('itemDesc').value || 'Brak opisu'
-            };
+        // Edycja elementu
+        window.editItem = function(id) {
+            document.getElementById('itemModal').classList.remove('hidden');
+            document.getElementById('modalTitle').innerText = "Edytuj pozycję";
+            
+            const item = menuItems.find(i => i.id === id);
+            
+            // Wypełnij formularz obecnymi danymi
+            document.getElementById('itemId').value = item.id;
+            document.getElementById('itemName').value = item.name;
+            document.getElementById('itemPrice').value = item.price;
+            document.getElementById('itemWeight').value = item.weight;
+            document.getElementById('itemDesc').value = item.desc;
+            
+            currentImageBase64 = ''; 
+            itemImageFileInput.value = ''; // Nie możemy ustawić pliku ze względów bezp. przeglądarek, zdjęcie zostanie stare, chyba że user wgra nowe
+        };
 
+        // Zapisywanie z Modala
+        window.saveItem = function() {
+            const id = document.getElementById('itemId').value;
+            const name = document.getElementById('itemName').value || 'Nowa Pozycja';
+            const price = parseFloat(document.getElementById('itemPrice').value) || 0;
+            const weight = document.getElementById('itemWeight').value || '-';
+            const desc = document.getElementById('itemDesc').value || 'Brak opisu';
+            
             if (id) {
+                // Tryb Edycji
                 const index = menuItems.findIndex(i => i.id === parseInt(id));
-                menuItems[index] = newItem;
+                const existingImage = menuItems[index].image;
+                
+                menuItems[index] = {
+                    id: parseInt(id),
+                    // Jeśli użytkownik dodał nowe zdjęcie to użyj go, jak nie - zostaw stare
+                    image: currentImageBase64 !== '' ? currentImageBase64 : existingImage,
+                    name: name,
+                    price: price,
+                    weight: weight,
+                    desc: desc
+                };
             } else {
-                menuItems.push(newItem);
+                // Tryb Dodawania
+                menuItems.push({
+                    id: Date.now(),
+                    // Jeśli brak wgranego pliku, użyj obrazka zastępczego (placeholdera)
+                    image: currentImageBase64 !== '' ? currentImageBase64 : 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=500&q=80',
+                    name: name,
+                    price: price,
+                    weight: weight,
+                    desc: desc
+                });
             }
 
             closeModal();
             renderMenu();
-        }
+        };
 
-        function deleteItem(id) {
-            if (confirm("Czy na pewno chcesz usunąć tę pozycję z menu?")) {
+        // Usuwanie z weryfikacją
+        window.deleteItem = function(id) {
+            if (confirm("Czy na pewno chcesz usunąć tę pozycję z menu? Nie będzie można tego cofnąć.")) {
                 menuItems = menuItems.filter(item => item.id !== id);
                 renderMenu();
             }
-        }
+        };
 
-        // Inicjalizacja
+        // Uruchom widok
         renderMenu();
     </script>
 </body>
