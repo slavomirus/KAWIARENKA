@@ -26,7 +26,7 @@
                 <a href="#opinie" class="hover:text-amber-600 transition">Opinie</a>
                 <a href="#kontakt" class="hover:text-amber-600 transition">Kontakt</a>
                 <!-- Przycisk Admina -->
-                <button id="toggleAdminBtn" class="bg-gray-800 text-white px-4 py-2 rounded-full text-xs hover:bg-gray-700 transition" onclick="toggleAdminMode()">
+                <button id="toggleAdminBtn" class="bg-gray-800 text-white px-4 py-2 rounded-full text-xs hover:bg-gray-700 transition shadow-sm" onclick="toggleAdminMode()">
                     Tryb Admina: OFF
                 </button>
             </div>
@@ -54,59 +54,52 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                 <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?auto=format&fit=crop&w=800&q=80" alt="Ciasto" class="rounded-2xl shadow-xl w-full h-80 object-cover">
                 <div>
-                    <h4 class="text-2xl font-bold text-amber-800 mb-2">Ciasto Dakłas & Sernik Cynamonowy</h4>
+                    <h4 class="text-2xl font-bold text-amber-800 mb-2">Ciasto Dakłas & Piernikowe Latte</h4>
                     <p class="text-gray-700 mb-6 leading-relaxed">
-                        Nasze absolutne hity wg klientów! Obłędne ciasto bezowe z kremem orzechowym, daktylami i kawałkami orzechów włoskich, oraz aksamitny sernik z nutą cynamonu, idealny do gorącej czekolady lub aromatycznego cappuccino.
+                        Nasze absolutne hity wg klientów! Obłędne ciasto bezowe z kremem orzechowym, daktylami i kawałkami orzechów włoskich, idealnie komponujące się z rozgrzewającym Piernikowym Latte lub naszą gęstą Gorącą Czekoladą.
                     </p>
                     <ul class="space-y-3 font-medium text-gray-800 mb-8">
-                        <li class="flex items-center gap-2"><span>☕</span> Cynamonowe Cappuccino</li>
-                        <li class="flex items-center gap-2"><span>🤎</span> Gorąca czekolada z piankami</li>
-                        <li class="flex items-center gap-2"><span>🍰</span> Pistacjowy sernik premium</li>
+                        <li class="flex items-center gap-2"><span>☕</span> Piernikowe Latte (19 zł)</li>
+                        <li class="flex items-center gap-2"><span>🤎</span> Gorąca czekolada z piankami (19 zł)</li>
+                        <li class="flex items-center gap-2"><span>🍰</span> Sernik na zimno z truskawkami</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sekcja Menu (Zarządzana przez Admina) -->
+    <!-- Sekcja Menu -->
     <section id="menu" class="py-20 max-w-7xl mx-auto px-4">
-        <div class="flex flex-col sm:flex-row justify-between items-center mb-12 gap-4">
-            <h3 class="text-4xl font-bold text-gray-900">Stałe Menu</h3>
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+            <h3 class="text-4xl font-bold text-gray-900">Nasze Menu</h3>
             <button id="addMenuItemBtn" class="hidden bg-amber-600 text-white px-6 py-3 rounded-full font-bold shadow-md hover:bg-amber-700 transition" onclick="openModal()">
                 + Dodaj nową pozycję
             </button>
         </div>
-        <div id="menuContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Tutaj JS wstrzykuje kafelki -->
+        
+        <!-- Tu JS wygeneruje sekcje dla kategorii i siatki (grid) pozycji -->
+        <div id="menuContainer" class="flex flex-col gap-10">
+            <!-- Wstrzykiwane przez JS -->
         </div>
     </section>
 
-    <!-- Sekcja Opinii (Prawdziwe z Google Maps) -->
+    <!-- Sekcja Opinii -->
     <section id="opinie" class="bg-white py-20 border-y border-gray-100">
         <div class="max-w-7xl mx-auto px-4">
             <h3 class="text-4xl font-bold text-center mb-12 text-gray-900">Co mówią o nas goście</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Opinia 1 -->
                 <div class="bg-[#faf8f5] p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="flex items-center gap-1 mb-4 text-amber-500 text-xl">
-                        ★★★★★
-                    </div>
+                    <div class="flex items-center gap-1 mb-4 text-amber-500 text-xl">★★★★★</div>
                     <p class="text-gray-700 italic mb-4">"Najlepsza kawa, jaką piłam w mieście, pyszne ciasta, piękny wystrój, czysto, a panie są urocze i wspaniałe. Na pewno będziemy wracać."</p>
                     <span class="font-bold text-gray-900">- Barbara B.</span>
                 </div>
-                <!-- Opinia 2 -->
                 <div class="bg-[#faf8f5] p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="flex items-center gap-1 mb-4 text-amber-500 text-xl">
-                        ★★★★★
-                    </div>
+                    <div class="flex items-center gap-1 mb-4 text-amber-500 text-xl">★★★★★</div>
                     <p class="text-gray-700 italic mb-4">"Maleńka kawiarnia z dużym wyborem ciast i lodów rzemieślniczych. Jadłam moje ulubione ciasto Dakłas – bezowe z kremem orzechowym i daktylami. Pycha!!"</p>
                     <span class="font-bold text-gray-900">- Liliana Górska</span>
                 </div>
-                <!-- Opinia 3 -->
                 <div class="bg-[#faf8f5] p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="flex items-center gap-1 mb-4 text-amber-500 text-xl">
-                        ★★★★★
-                    </div>
+                    <div class="flex items-center gap-1 mb-4 text-amber-500 text-xl">★★★★★</div>
                     <p class="text-gray-700 italic mb-4">"Bardzo przyjemna kawiarnia w Gdyni Chyloni. Klimatyczne miejsce, idealne na kawę i coś słodkiego. Czego chcieć więcej od dobrej kawiarni? ;)"</p>
                     <span class="font-bold text-gray-900">- Marcin</span>
                 </div>
@@ -117,20 +110,15 @@
     <!-- Sekcja Kontakt & Mapa -->
     <section id="kontakt" class="py-20 max-w-7xl mx-auto px-4">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
-            <!-- Informacje -->
             <div class="flex flex-col justify-center">
                 <h3 class="text-3xl font-bold text-gray-900 mb-6">Znajdź nas</h3>
-                
                 <div class="mb-8">
                     <h4 class="text-xl font-bold text-amber-800 mb-2">Kawiarenka - Kawa & Ciasto</h4>
-                    <p class="text-gray-600 flex items-center gap-2">
-                        📍 Gdynia Chylonia<br>
-                    </p>
+                    <p class="text-gray-600 flex items-center gap-2">📍 Gdynia Chylonia</p>
                     <p class="text-gray-600 mt-3 font-semibold text-lg flex items-center gap-2">
                         📞 Telefon: <a href="tel:+48733338799" class="text-amber-600 hover:underline">733 338 799</a>
                     </p>
                 </div>
-
                 <div>
                     <h4 class="text-xl font-bold text-gray-900 mb-4">Godziny otwarcia</h4>
                     <ul class="text-gray-600 space-y-2">
@@ -144,17 +132,10 @@
                     </ul>
                 </div>
             </div>
-
-            <!-- Mapa Osadzona -->
             <div class="w-full h-96 lg:h-full min-h-[300px] rounded-2xl overflow-hidden shadow-inner">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d645.2114245012467!2d18.46153992340791!3d54.543479102597374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fda5d215c79a2f%3A0x456211b64ea92f28!2sKAWIARENKA%20-%20Kawa%20%26%20Ciasto%20Gdynia%20Chylonia!5e0!3m2!1sen!2spl!4v1779819805604!5m2!1sen!2spl" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
         </div>
@@ -166,16 +147,24 @@
     </footer>
 
     <!-- Modal Formularza (Dodaj / Edytuj) -->
-    <div id="itemModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center">
-        <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-lg relative">
+    <div id="itemModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center overflow-y-auto pt-10 pb-10">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-lg relative my-auto">
             <h3 id="modalTitle" class="text-2xl font-bold mb-6 text-gray-900">Dodaj nową pozycję</h3>
             <input type="hidden" id="itemId">
             
-            <!-- Pole na plik zdjęcia z urządzenia -->
             <div class="mb-5">
                 <label class="block text-sm font-bold text-gray-700 mb-2">Zdjęcie z urządzenia</label>
                 <input type="file" id="itemImageFile" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100 cursor-pointer">
                 <p class="text-xs text-gray-400 mt-1">Zostaw puste podczas edycji, jeśli nie chcesz zmieniać zdjęcia.</p>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-bold text-gray-700 mb-1">Kategoria</label>
+                <select id="itemCategory" class="w-full border-gray-300 border p-3 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none transition bg-white">
+                    <option value="Napoje i kawy">Napoje i kawy</option>
+                    <option value="Desery i inne">Desery i inne</option>
+                    <option value="Lody i Dodatki">Lody i Dodatki</option>
+                </select>
             </div>
             
             <div class="mb-4">
@@ -186,107 +175,147 @@
             <div class="flex gap-4 mb-4">
                 <div class="w-1/2">
                     <label class="block text-sm font-bold text-gray-700 mb-1">Cena (PLN)</label>
-                    <input type="number" id="itemPrice" class="w-full border-gray-300 border p-3 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none transition" placeholder="15">
+                    <input type="text" id="itemPrice" class="w-full border-gray-300 border p-3 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none transition" placeholder="np. 12/14">
                 </div>
                 <div class="w-1/2">
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Pojemność / Waga</label>
-                    <input type="text" id="itemWeight" class="w-full border-gray-300 border p-3 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none transition" placeholder="np. 200ml">
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Pojemność / Waga / Sztuki</label>
+                    <input type="text" id="itemWeight" class="w-full border-gray-300 border p-3 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none transition" placeholder="np. porcja">
                 </div>
             </div>
 
             <div class="mb-6">
-                <label class="block text-sm font-bold text-gray-700 mb-1">Opis</label>
-                <textarea id="itemDesc" class="w-full border-gray-300 border p-3 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none transition" rows="3" placeholder="Krótki, apetyczny opis..."></textarea>
+                <label class="block text-sm font-bold text-gray-700 mb-1">Opis (opcjonalnie)</label>
+                <textarea id="itemDesc" class="w-full border-gray-300 border p-3 rounded-xl focus:ring-2 focus:ring-amber-500 outline-none transition" rows="2" placeholder="Krótki opis..."></textarea>
             </div>
 
             <div class="flex justify-end gap-3">
                 <button class="bg-gray-100 text-gray-800 px-5 py-2.5 rounded-xl font-bold hover:bg-gray-200 transition" onclick="closeModal()">Anuluj</button>
-                <button class="bg-amber-600 text-white px-5 py-2.5 rounded-xl font-bold shadow-md hover:bg-amber-700 transition" onclick="saveItem()">Zapisz Pozycję</button>
+                <button class="bg-amber-600 text-white px-5 py-2.5 rounded-xl font-bold shadow-md hover:bg-amber-700 transition" onclick="saveItem()">Zapisz</button>
             </div>
         </div>
     </div>
 
     <script>
         let isAdmin = false;
-        let currentImageBase64 = ''; // Przechowuje zdjęcie wczytane z urządzenia
+        let currentImageBase64 = ''; 
         
-        // Przykładowe dane na start
+        // Pełne menu podane przez Ciebie, ułożone w kategorie
         let menuItems = [
-            { id: 1, name: "Klasyczne Espresso", price: 10, weight: "30ml", desc: "Mocna, esencjonalna i aromatyczna kawa parzona z najlepszych ziaren bez goryczy.", image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=500&q=80" },
-            { id: 2, name: "Sernik Pistacjowy", price: 24, weight: "Porcja", desc: "Prawdziwy hit! Delikatny, kremowy sernik z pastą z wyselekcjonowanych pistacji.", image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=500&q=80" },
-            { id: 3, name: "Cappuccino z kremą", price: 16, weight: "250ml", desc: "Zbalansowany smak kawy połączony z perfekcyjnie spienionym mlekiem.", image: "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=500&q=80" }
+            // Napoje i kawy
+            { id: 1, category: "Napoje i kawy", name: "Espresso", price: "9", weight: "-", desc: "Mocna i aromatyczna.", image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=500&q=80" },
+            { id: 2, category: "Napoje i kawy", name: "Podwójne Espresso", price: "12", weight: "-", desc: "Podwójna dawka energii.", image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=500&q=80" },
+            { id: 3, category: "Napoje i kawy", name: "Americano", price: "12/14", weight: "Małe/Duże", desc: "Czysta czarna kawa.", image: "https://images.unsplash.com/photo-1550585025-a1cdd0fb4b3e?auto=format&fit=crop&w=500&q=80" },
+            { id: 4, category: "Napoje i kawy", name: "Cappuccino", price: "14/16", weight: "Małe/Duże", desc: "Z idealnie spienionym mlekiem.", image: "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=500&q=80" },
+            { id: 5, category: "Napoje i kawy", name: "Flat White", price: "15", weight: "-", desc: "Podwójne espresso z mlekiem.", image: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=500&q=80" },
+            { id: 6, category: "Napoje i kawy", name: "Latte Macchiato", price: "16", weight: "-", desc: "Kawa z dużą ilością mleka.", image: "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=500&q=80" },
+            { id: 7, category: "Napoje i kawy", name: "Piernikowe Latte", price: "19", weight: "-", desc: "Z rozgrzewającym syropem.", image: "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=500&q=80" },
+            { id: 8, category: "Napoje i kawy", name: "Herbata", price: "9", weight: "-", desc: "Różne rodzaje do wyboru.", image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=80" },
+            { id: 9, category: "Napoje i kawy", name: "Kawa mrożona", price: "19", weight: "-", desc: "Idealna na orzeźwienie.", image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=500&q=80" },
+            { id: 10, category: "Napoje i kawy", name: "Kawa mrożona z lodami", price: "24", weight: "-", desc: "Z rzemieślniczą gałką lodów.", image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=500&q=80" },
+            { id: 11, category: "Napoje i kawy", name: "Gorąca czekolada", price: "17", weight: "-", desc: "Gęsta i kremowa.", image: "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=500&q=80" },
+            { id: 12, category: "Napoje i kawy", name: "Gorąca czekolada z piankami", price: "19", weight: "-", desc: "Z piankami marshmallow.", image: "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=500&q=80" },
+            { id: 13, category: "Napoje i kawy", name: "Waniliowa Matcha Latte", price: "19", weight: "-", desc: "Matcha z nutą wanilii.", image: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=500&q=80" },
+
+            // Desery i inne
+            { id: 14, category: "Desery i inne", name: "Ciastka", price: "5", weight: "szt.", desc: "Kruche ciasteczka.", image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=500&q=80" },
+            { id: 15, category: "Desery i inne", name: "Marchewkowe", price: "17", weight: "szt.", desc: "Pyszne z kremowym serkiem.", image: "https://images.unsplash.com/photo-1563725515320-f56f178dc926?auto=format&fit=crop&w=500&q=80" },
+            { id: 16, category: "Desery i inne", name: "Malinowa chmurka", price: "19", weight: "szt.", desc: "Lekkie i owocowe.", image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=500&q=80" },
+            { id: 17, category: "Desery i inne", name: "Tort bezowy", price: "22", weight: "szt.", desc: "Chrupiąca beza, wspaniały krem.", image: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=500&q=80" },
+            { id: 18, category: "Desery i inne", name: "Sernik na zimno z truskawkami", price: "19", weight: "porcja", desc: "Świeży, na zimno.", image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80" },
+            { id: 19, category: "Desery i inne", name: "Szarlotka", price: "17", weight: "porcja", desc: "Klasyczna z jabłkami.", image: "https://images.unsplash.com/photo-1562007908-17c67e878c88?auto=format&fit=crop&w=500&q=80" },
+            { id: 20, category: "Desery i inne", name: "Deser lodowy", price: "25", weight: "pucharek", desc: "Lodowa kompozycja.", image: "https://images.unsplash.com/photo-1563805042-7684c8e9e1cb?auto=format&fit=crop&w=500&q=80" },
+            { id: 21, category: "Desery i inne", name: "Lemoniada cytrynowa", price: "15", weight: "-", desc: "Domowa i rześka.", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=500&q=80" },
+            { id: 22, category: "Desery i inne", name: "Rurka z bitą śmietaną", price: "6", weight: "szt.", desc: "Chrupiąca z kremem.", image: "https://images.unsplash.com/photo-1621236378699-8597faf6a176?auto=format&fit=crop&w=500&q=80" },
+
+            // Lody i Dodatki
+            { id: 23, category: "Lody i Dodatki", name: "Lody Rzemieślnicze", price: "8", weight: "gałka", desc: "Smaki: Śmietanka, Masło Orzechowe, Czekolada, Sorbet limonka z miętą, Smerfowe, Lotus.", image: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=500&q=80" },
+            { id: 24, category: "Lody i Dodatki", name: "Dodatki ogólne", price: "3", weight: "porcja", desc: "Polewa, Posypka, Bita śmietana lub wymiana na Mleko owsiane.", image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=500&q=80" }
         ];
 
-        // Referencje
         const menuContainer = document.getElementById('menuContainer');
         const toggleAdminBtn = document.getElementById('toggleAdminBtn');
         const addMenuItemBtn = document.getElementById('addMenuItemBtn');
         const itemImageFileInput = document.getElementById('itemImageFile');
 
-        // Obsługa wczytywania zdjęcia z urządzenia
+        // Wczytywanie z urządzenia
         itemImageFileInput.addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
-                reader.onload = function(event) {
-                    currentImageBase64 = event.target.result; // Zapisz w formacie Data URL
-                };
+                reader.onload = function(event) { currentImageBase64 = event.target.result; };
                 reader.readAsDataURL(file);
-            } else {
-                currentImageBase64 = '';
-            }
+            } else { currentImageBase64 = ''; }
         });
 
-        // Generowanie widoku Menu
         function renderMenu() {
             menuContainer.innerHTML = '';
-            menuItems.forEach(item => {
-                const card = document.createElement('div');
-                card.className = "relative bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden cursor-pointer hover:shadow-xl transition duration-300 flex flex-col group";
-                
-                // Kliknięcie uruchamia nakładkę admina
-                card.onclick = () => toggleItemOverlay(item.id);
+            
+            // Definiujemy unikalne kategorie
+            const categories = ["Napoje i kawy", "Desery i inne", "Lody i Dodatki"];
+            
+            categories.forEach(cat => {
+                const itemsInCat = menuItems.filter(i => i.category === cat);
+                if(itemsInCat.length === 0) return;
 
-                card.innerHTML = `
-                    <div class="h-56 overflow-hidden">
-                        <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-3 gap-2">
-                                <h4 class="text-xl font-bold text-gray-900">${item.name}</h4>
-                                <span class="bg-amber-100 text-amber-800 text-sm font-bold px-3 py-1 rounded-full whitespace-nowrap">${item.price} PLN</span>
-                            </div>
-                            <p class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-3">Pojemność/Waga: ${item.weight}</p>
-                            <p class="text-gray-600 text-sm leading-relaxed">${item.desc}</p>
-                        </div>
-                    </div>
-
-                    <!-- Nakładka edycyjna (80% przeźroczystości) -->
-                    <div id="overlay-${item.id}" class="admin-overlay absolute inset-0 bg-black/80 flex-col items-center justify-center gap-4 hidden opacity-0 z-10 backdrop-blur-sm">
-                        <p class="text-white font-bold tracking-wide mb-2 uppercase text-sm">Opcje Panelu</p>
-                        <div class="flex gap-3">
-                            <!-- Funkcje edytuj i usun musza być zadeklarowane globalnie -->
-                            <button class="bg-blue-500 text-white px-6 py-2 rounded-full font-bold shadow hover:bg-blue-600 transition" onclick="event.stopPropagation(); window.editItem(${item.id})">Edytuj</button>
-                            <button class="bg-red-500 text-white px-6 py-2 rounded-full font-bold shadow hover:bg-red-600 transition" onclick="event.stopPropagation(); window.deleteItem(${item.id})">Usuń</button>
-                        </div>
-                        <button class="absolute top-4 right-4 text-gray-300 hover:text-white font-bold text-sm bg-black/50 px-3 py-1 rounded-full" onclick="event.stopPropagation(); toggleItemOverlay(${item.id})">✕ Zamknij</button>
+                // Tworzymy nagłówek sekcji
+                const sectionHtml = document.createElement('div');
+                sectionHtml.innerHTML = `
+                    <div class="border-b-2 border-amber-200 pb-2 mb-6 mt-8">
+                        <h4 class="text-3xl font-bold text-amber-800">${cat}</h4>
                     </div>
                 `;
-                menuContainer.appendChild(card);
+                menuContainer.appendChild(sectionHtml);
+
+                // Tworzymy siatkę (grid) z pozycjami dla danej kategorii
+                const grid = document.createElement('div');
+                grid.className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6";
+
+                itemsInCat.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = "relative bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden cursor-pointer hover:shadow-xl transition duration-300 flex flex-col group";
+                    card.onclick = () => toggleItemOverlay(item.id);
+
+                    card.innerHTML = `
+                        <div class="h-48 overflow-hidden">
+                            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-2 gap-2">
+                                    <h4 class="text-lg font-bold text-gray-900 leading-tight">${item.name}</h4>
+                                    <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded-full whitespace-nowrap">${item.price} PLN</span>
+                                </div>
+                                <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-2">Ilość: ${item.weight}</p>
+                                <p class="text-gray-600 text-sm leading-snug">${item.desc}</p>
+                            </div>
+                        </div>
+
+                        <!-- Nakładka edycyjna -->
+                        <div id="overlay-${item.id}" class="admin-overlay absolute inset-0 bg-black/80 flex-col items-center justify-center gap-4 hidden opacity-0 z-10 backdrop-blur-sm">
+                            <p class="text-white font-bold tracking-wide mb-2 uppercase text-sm">Panel Pozycji</p>
+                            <div class="flex gap-2">
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded-full font-bold shadow text-sm hover:bg-blue-600 transition" onclick="event.stopPropagation(); window.editItem(${item.id})">Edytuj</button>
+                                <button class="bg-red-500 text-white px-4 py-2 rounded-full font-bold shadow text-sm hover:bg-red-600 transition" onclick="event.stopPropagation(); window.deleteItem(${item.id})">Usuń</button>
+                            </div>
+                            <button class="absolute top-4 right-4 text-gray-300 hover:text-white font-bold text-sm bg-black/50 px-3 py-1 rounded-full" onclick="event.stopPropagation(); toggleItemOverlay(${item.id})">✕ Zamknij</button>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+                
+                menuContainer.appendChild(grid);
             });
         }
 
-        // Tryb Administratora
+        // Reszta logiki JS bez zmian
         function toggleAdminMode() {
             isAdmin = !isAdmin;
             toggleAdminBtn.innerText = isAdmin ? "Tryb Admina: ON" : "Tryb Admina: OFF";
             toggleAdminBtn.classList.toggle('bg-amber-600', isAdmin);
             toggleAdminBtn.classList.toggle('bg-gray-800', !isAdmin);
             
-            if (isAdmin) {
-                addMenuItemBtn.classList.remove('hidden');
-            } else {
+            if (isAdmin) addMenuItemBtn.classList.remove('hidden');
+            else {
                 addMenuItemBtn.classList.add('hidden');
                 document.querySelectorAll('.admin-overlay').forEach(overlay => {
                     overlay.classList.add('hidden');
@@ -295,108 +324,81 @@
             }
         }
 
-        // Nakładka
         function toggleItemOverlay(id) {
             if (!isAdmin) return;
             const overlay = document.getElementById(`overlay-${id}`);
             const isHidden = overlay.classList.contains('hidden');
-
             document.querySelectorAll('.admin-overlay').forEach(el => {
-                el.classList.add('hidden');
-                el.classList.remove('flex', 'opacity-100');
+                el.classList.add('hidden'); el.classList.remove('flex', 'opacity-100');
             });
-
             if (isHidden) {
-                overlay.classList.remove('hidden');
-                overlay.classList.add('flex');
+                overlay.classList.remove('hidden'); overlay.classList.add('flex');
                 setTimeout(() => overlay.classList.add('opacity-100'), 10);
             }
         }
 
-        // Otwieranie Modala
         function openModal() {
             document.getElementById('itemModal').classList.remove('hidden');
-            currentImageBase64 = ''; // Resetuj wczytane zdjęcie przy każdym otwarciu
-            itemImageFileInput.value = ''; // Wyczyść input pliku
-            
+            currentImageBase64 = ''; itemImageFileInput.value = '';
             document.getElementById('modalTitle').innerText = "Dodaj nową pozycję";
             document.getElementById('itemId').value = "";
             document.getElementById('itemName').value = "";
             document.getElementById('itemPrice').value = "";
             document.getElementById('itemWeight').value = "";
             document.getElementById('itemDesc').value = "";
+            document.getElementById('itemCategory').value = "Napoje i kawy";
         }
 
-        function closeModal() {
-            document.getElementById('itemModal').classList.add('hidden');
-        }
+        function closeModal() { document.getElementById('itemModal').classList.add('hidden'); }
 
-        // Edycja elementu
         window.editItem = function(id) {
             document.getElementById('itemModal').classList.remove('hidden');
             document.getElementById('modalTitle').innerText = "Edytuj pozycję";
-            
             const item = menuItems.find(i => i.id === id);
-            
-            // Wypełnij formularz obecnymi danymi
             document.getElementById('itemId').value = item.id;
+            document.getElementById('itemCategory').value = item.category;
             document.getElementById('itemName').value = item.name;
             document.getElementById('itemPrice').value = item.price;
             document.getElementById('itemWeight').value = item.weight;
             document.getElementById('itemDesc').value = item.desc;
-            
-            currentImageBase64 = ''; 
-            itemImageFileInput.value = ''; // Nie możemy ustawić pliku ze względów bezp. przeglądarek, zdjęcie zostanie stare, chyba że user wgra nowe
+            currentImageBase64 = ''; itemImageFileInput.value = ''; 
         };
 
-        // Zapisywanie z Modala
         window.saveItem = function() {
             const id = document.getElementById('itemId').value;
+            const cat = document.getElementById('itemCategory').value;
             const name = document.getElementById('itemName').value || 'Nowa Pozycja';
-            const price = parseFloat(document.getElementById('itemPrice').value) || 0;
+            const price = document.getElementById('itemPrice').value || '0';
             const weight = document.getElementById('itemWeight').value || '-';
-            const desc = document.getElementById('itemDesc').value || 'Brak opisu';
+            const desc = document.getElementById('itemDesc').value || '';
             
             if (id) {
-                // Tryb Edycji
                 const index = menuItems.findIndex(i => i.id === parseInt(id));
                 const existingImage = menuItems[index].image;
-                
                 menuItems[index] = {
                     id: parseInt(id),
-                    // Jeśli użytkownik dodał nowe zdjęcie to użyj go, jak nie - zostaw stare
+                    category: cat,
                     image: currentImageBase64 !== '' ? currentImageBase64 : existingImage,
-                    name: name,
-                    price: price,
-                    weight: weight,
-                    desc: desc
+                    name: name, price: price, weight: weight, desc: desc
                 };
             } else {
-                // Tryb Dodawania
                 menuItems.push({
                     id: Date.now(),
-                    // Jeśli brak wgranego pliku, użyj obrazka zastępczego (placeholdera)
+                    category: cat,
                     image: currentImageBase64 !== '' ? currentImageBase64 : 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=500&q=80',
-                    name: name,
-                    price: price,
-                    weight: weight,
-                    desc: desc
+                    name: name, price: price, weight: weight, desc: desc
                 });
             }
-
-            closeModal();
-            renderMenu();
+            closeModal(); renderMenu();
         };
 
-        // Usuwanie z weryfikacją
         window.deleteItem = function(id) {
-            if (confirm("Czy na pewno chcesz usunąć tę pozycję z menu? Nie będzie można tego cofnąć.")) {
+            if (confirm("Czy na pewno chcesz usunąć tę pozycję z menu?")) {
                 menuItems = menuItems.filter(item => item.id !== id);
                 renderMenu();
             }
         };
 
-        // Uruchom widok
         renderMenu();
     </script>
 </body>
